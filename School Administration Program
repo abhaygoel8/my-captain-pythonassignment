@@ -1,0 +1,74 @@
+# Define data structures
+students = []
+teachers = []
+classes = []
+grades = {}
+
+# Define functions to add, remove, and modify data
+def add_student(name, grade):
+    students.append({'name': name, 'grade': grade})
+
+def remove_student(name):
+    for i, student in enumerate(students):
+        if student['name'] == name:
+            del students[i]
+            break
+
+def add_teacher(name):
+    teachers.append(name)
+
+def remove_teacher(name):
+    teachers.remove(name)
+
+def add_class(name):
+    classes.append(name)
+
+def remove_class(name):
+    classes.remove(name)
+
+def add_grade(student_name, class_name, grade):
+    key = student_name + '|' + class_name
+    grades[key] = grade
+
+def get_grade(student_name, class_name):
+    key = student_name + '|' + class_name
+    return grades.get(key)
+
+# Create user interface
+while True:
+    print('1. Add student')
+    print('2. Remove student')
+    print('3. Add teacher')
+    print('4. Remove teacher')
+    print('5. Add class')
+    print('6. Remove class')
+    print('7. Add grade')
+    print('8. Get grade')
+    print('9. Exit')
+
+    choice = input('Enter your choice: ')
+
+    if choice == '1':
+        name = input('Enter student name: ')
+        grade = input('Enter student grade: ')
+        add_student(name, grade)
+    elif choice == '2':
+        name = input('Enter student name: ')
+        remove_student(name)
+    elif choice == '3':
+        name = input('Enter teacher name: ')
+        add_teacher(name)
+    elif choice == '4':
+        name = input('Enter teacher name: ')
+        remove_teacher(name)
+    elif choice == '5':
+        name = input('Enter class name: ')
+        add_class(name)
+    elif choice == '6':
+        name = input('Enter class name: ')
+        remove_class(name)
+    elif choice == '7':
+        student_name = input('Enter student name: ')
+        class_name = input('Enter class name: ')
+        grade = input('Enter grade: ')
+        add_grade
